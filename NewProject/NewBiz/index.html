@@ -209,6 +209,37 @@
      <label for="orgN">Advisor's Signature:</label><br>
   <input type="text" id="adv" name="adv"><br>
 
+        <br>
+    
+    
+     <form>
+    Your Name <input type="text" name="custName" id="custName"><br><br>
+    <input type="button" onClick="sendMail();" value="Click to send email"></form>
+   
+    <br>
+    <br>
+    
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <br>
+    
+    <script>
+    function sendMail(){
+        var custName = document.getElementById("custName").value;
+        
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "cottrell.lee@ptcollege.edu",
+            Password:"password",
+            To: 'cottrell.lee@ptcollege.edu',
+            From: "cottrell.lee@ptcollege.edu",
+            Subject: "Fundraising Form Date",
+            Body: "Group name:" + custName
+        }).then(
+        message => alert(message));
+    }
+    </script>
+    
     <p>---------------------------------------------------------------------------------------------------</p>
 
     <label for="orgN">Student Activities:</label><br>
